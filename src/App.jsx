@@ -13,13 +13,15 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Console from './components/Console'
 import Notification from './components/Notification'
+import { ThemeProvider, useTheme } from './context/ThemeContext'
 
-export default function App() {
+function AppContent() {
   const [introDone, setIntroDone] = useState(false)
   const [consoleOpen, setConsoleOpen] = useState(false)
   const [audioOn, setAudioOn] = useState(false)
   const [notif, setNotif] = useState({ msg: '', visible: false })
   const notifTimer = useRef(null)
+  const { bright } = useTheme()
 
   const showNotification = useCallback((msg) => {
     clearTimeout(notifTimer.current)
@@ -35,7 +37,6 @@ export default function App() {
     showNotification(next ? 'AUDIO: ENABLED' : 'AUDIO: MUTED')
   }
 
-  // Lenis smooth scroll
   useEffect(() => {
     if (!introDone) return
     const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
@@ -45,7 +46,7 @@ export default function App() {
   }, [introDone])
 
   return (
-    <>
+    <div className={bright ? 'bright-theme' : ''}>
       <div className="noise-overlay" />
       <Cursor />
       <ThreeBackground visible={introDone} />
@@ -69,7 +70,7 @@ export default function App() {
           <Experience />
           <Contact showNotification={showNotification} />
         </main>
-        <footer className="py-8 text-center text-xs font-mono text-gray-600 border-t border-white/5">
+        <footer className="py-8 text-center text-xs font-mono border-t border-white/5 footer-text">
           <p>SYSTEM DESIGN © 2024 DEEPAK GUPTA // ALL RIGHTS RESERVED</p>
           <p className="mt-2">RENDERED IN: <span className="text-cyber-cyan">0.02ms</span></p>
         </footer>
@@ -77,6 +78,14 @@ export default function App() {
 
       <Console open={consoleOpen} onClose={() => setConsoleOpen(false)} />
       <Notification message={notif.msg} visible={notif.visible} />
-    </>
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }

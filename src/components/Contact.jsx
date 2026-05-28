@@ -14,8 +14,8 @@ export default function Contact({ showNotification }) {
     <section id="contact" className="py-20 md:py-32 px-4 md:px-6 relative min-h-screen flex items-center">
       <div className="max-w-2xl mx-auto w-full z-10">
         <div className="glass-panel p-1 rounded-xl neon-border">
-          <div className="bg-black/80 p-6 md:p-12 rounded-lg">
-            <h2 className="font-orbitron text-2xl md:text-4xl font-bold mb-2 text-white">INITIATE UPLINK</h2>
+          <div className="contact-inner bg-black/80 p-6 md:p-12 rounded-lg">
+            <h2 className="contact-heading font-orbitron text-2xl md:text-4xl font-bold mb-2 text-white">INITIATE UPLINK</h2>
             <p className="text-cyber-cyan font-mono text-sm mb-8">STATUS: WAITING FOR INPUT...</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -24,23 +24,23 @@ export default function Contact({ showNotification }) {
                 { label: 'COMM_CHANNEL (EMAIL)', type: 'email', key: 'email', placeholder: 'ENTER EMAIL' },
               ].map(f => (
                 <div key={f.key} className="group">
-                  <label className="block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-cyber-cyan transition-colors">
+                  <label className="contact-label block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-cyber-cyan transition-colors">
                     {f.label}
                   </label>
                   <input type={f.type} value={form[f.key]}
                     onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
-                    className="w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors font-mono"
+                    className="contact-input w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors font-mono"
                     placeholder={f.placeholder} required />
                 </div>
               ))}
 
               <div className="group">
-                <label className="block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-cyber-cyan transition-colors">
+                <label className="contact-label block text-xs font-mono text-gray-500 mb-1 group-focus-within:text-cyber-cyan transition-colors">
                   DATA_PACKET (MESSAGE)
                 </label>
                 <textarea rows={4} value={form.message}
                   onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                  className="w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors font-mono resize-none"
+                  className="contact-input w-full bg-transparent border-b border-gray-700 py-2 text-white focus:outline-none focus:border-cyber-cyan transition-colors font-mono resize-none"
                   placeholder="ENTER MESSAGE" required />
               </div>
 
@@ -60,7 +60,7 @@ export default function Contact({ showNotification }) {
           { Icon: Linkedin, hover: 'hover:text-blue-400', href: '#' },
           { Icon: Twitter, hover: 'hover:text-cyber-magenta', href: '#' },
         ].map(({ Icon, hover, href }) => (
-          <a key={href + Icon.name} href={href}
+          <a key={href + Icon.displayName} href={href}
             className={`text-gray-400 ${hover} hover:scale-125 transition-all duration-300`}>
             <Icon className="w-5 h-5" />
           </a>

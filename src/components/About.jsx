@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { User } from 'lucide-react'
 
 export default function About() {
   const cardRef = useRef(null)
@@ -25,18 +24,18 @@ export default function About() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Text */}
         <div className="order-2 lg:order-1">
-          <h2 className="font-orbitron text-3xl md:text-4xl lg:text-5xl font-bold mb-8 flex items-center gap-4 flex-wrap">
+          <h2 className="font-orbitron text-3xl md:text-4xl lg:text-5xl font-bold mb-8 flex items-center gap-4 flex-wrap section-heading">
             <span className="text-cyber-magenta">01.</span> USER PROFILE
             <div className="h-[1px] flex-grow bg-gradient-to-r from-cyber-magenta/50 to-transparent min-w-[40px]" />
           </h2>
 
-          <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed border-l-2 border-cyber-cyan pl-4">
-            I am a <span className="text-white font-bold">Full Stack Engineer</span> and{' '}
-            <span className="text-white font-bold">3D Web Creator</span> specialized in building
+          <p className="text-base md:text-lg mb-6 leading-relaxed border-l-2 border-cyber-cyan pl-4 section-text">
+            I am a <span className="font-bold highlight-text">Full Stack Engineer</span> and{' '}
+            <span className="font-bold highlight-text">3D Web Creator</span> specialized in building
             high-performance digital ecosystems. I don't just write code; I architect immersive experiences.
           </p>
 
-          <p className="text-gray-400 mb-8 text-sm md:text-base">
+          <p className="mb-8 text-sm md:text-base section-subtext">
             My journey began with a curiosity for how things work, evolving into a proficiency in Java
             ecosystems and modern JavaScript frameworks. I merge backend robustness with frontend flair.
           </p>
@@ -47,48 +46,64 @@ export default function About() {
               { label: 'ROLE', value: 'SOFTWARE ENGR', color: 'border-cyber-purple', textColor: 'text-cyber-purple' },
               { label: 'STATUS', value: 'OPEN TO WORK', color: 'border-cyber-magenta', textColor: 'text-cyber-magenta' },
             ].map(item => (
-              <div key={item.label} className={`glass-panel p-3 border-l-2 ${item.color}`}>
+              <div key={item.label} className={`glass-panel p-3 border-l-2 ${item.color} info-card`}>
                 <span className={`block text-xs ${item.textColor}`}>{item.label}</span>
-                {item.value}
+                <span className="info-card-value">{item.value}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Holographic Card */}
-        <div className="order-1 lg:order-2 flex justify-center perspective-container"
+        {/* Holographic Card with Profile Image */}
+        <div className="order-1 lg:order-2 flex justify-center"
           ref={containerRef} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}
           style={{ perspective: '1000px' }}>
           <div ref={cardRef}
-            className="relative w-72 md:w-80 h-[420px] md:h-[450px] bg-black/40 border border-cyber-cyan/30 rounded-lg p-6 backdrop-blur-md"
+            className="relative w-72 md:w-80 h-[480px] md:h-[500px] bg-black/40 border border-cyber-cyan/30 rounded-lg p-6 backdrop-blur-md"
             style={{ transition: 'transform 0.1s', transformStyle: 'preserve-3d' }}>
+
             <div className="absolute inset-0 bg-gradient-to-br from-cyber-cyan/10 to-cyber-purple/10 rounded-lg pointer-events-none" />
 
-            <div className="w-full h-44 md:h-48 bg-gray-900/50 rounded border border-cyber-cyan/20 mb-6 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-cyber-cyan">
-                <User className="w-16 md:w-20 h-16 md:h-20 opacity-50" />
+            {/* Profile Image */}
+            <div className="w-full h-52 bg-gray-900/50 rounded border border-cyber-cyan/20 mb-6 overflow-hidden relative">
+              <img
+                src="/Deepak img.png"
+                alt="Deepak Gupta"
+                className="w-full h-full object-cover object-top"
+                onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex' }}
+              />
+              {/* Fallback if image fails */}
+              <div className="absolute inset-0 items-center justify-center text-cyber-cyan hidden">
+                <span className="font-orbitron text-4xl font-bold">DG</span>
               </div>
+              {/* Scan line overlay */}
               <div className="absolute top-0 left-0 w-full h-1 bg-cyber-cyan/50 shadow-[0_0_10px_#00f3ff] animate-scan" />
+              {/* Holographic overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            <h3 className="font-orbitron text-xl md:text-2xl font-bold text-white mb-2">Deepak Gupta</h3>
-            <p className="text-cyber-cyan font-mono text-sm mb-6">@deepak_dev_v1</p>
+            <h3 className="font-orbitron text-xl md:text-2xl font-bold text-white mb-1">Deepak Gupta</h3>
+            <p className="text-cyber-cyan font-mono text-sm mb-5">@deepak_dev_v1</p>
 
             <div className="space-y-3">
               {[
-                { label: 'Java', pct: '90%', color: 'bg-cyber-cyan' },
-                { label: 'React', pct: '85%', color: 'bg-cyber-magenta' },
-                { label: 'Three.js', pct: '70%', color: 'bg-cyber-purple' },
+                { label: 'Java',       pct: '90%', color: 'bg-cyber-cyan' },
+                { label: 'React',      pct: '85%', color: 'bg-cyber-magenta' },
+                { label: 'Python',     pct: '70%', color: 'bg-cyber-purple' },
+                { label: 'JavaScript', pct: '80%', color: 'bg-cyber-cyan' },
+                { label: 'SQL',        pct: '75%', color: 'bg-cyber-magenta' },
               ].map(s => (
-                <div key={s.label} className="flex justify-between text-sm items-center">
-                  <span className="text-gray-400 w-16">{s.label}</span>
-                  <div className="w-24 h-1 bg-gray-800">
-                    <div className={`h-full ${s.color}`} style={{ width: s.pct }} />
+                <div key={s.label} className="flex justify-between text-sm items-center gap-3">
+                  <span className="text-gray-400 w-20 shrink-0">{s.label}</span>
+                  <div className="flex-1 h-1 bg-gray-800 rounded">
+                    <div className={`h-full ${s.color} rounded`} style={{ width: s.pct }} />
                   </div>
+                  <span className="text-xs text-gray-500 w-8 text-right">{s.pct}</span>
                 </div>
               ))}
             </div>
 
+            {/* Corner decorations */}
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyber-cyan" />
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyber-cyan" />
           </div>

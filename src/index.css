@@ -136,39 +136,94 @@ body {
 #command-console { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
 .hidden-console { transform: translateY(110%); }
 
-/* Solar System */
-.solar-system {
-  position: relative;
-  transform-style: preserve-3d;
-  animation: rotateSystem 60s linear infinite;
-}
-.planet {
-  position: absolute; top: 50%; left: 50%;
-  border-radius: 50%;
-  display: flex; justify-content: center; align-items: center;
-  font-size: 0.8rem; font-weight: bold; color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transform-style: preserve-3d;
-  cursor: pointer; transition: all 0.3s;
-}
-.planet:hover { box-shadow: 0 0 20px #00f3ff; z-index: 10; }
-@keyframes rotateSystem {
-  from { transform: rotate(0deg) rotateX(20deg); }
-  to { transform: rotate(360deg) rotateX(20deg); }
-}
-.planet span {
-  animation: counterRotate 60s linear infinite;
-}
-@keyframes counterRotate {
-  from { transform: rotate(0deg) rotateX(-20deg); }
-  to { transform: rotate(-360deg) rotateX(-20deg); }
-}
+/* Solar System - canvas based, no CSS animation needed */
+.planet { cursor: pointer; }
 
 @keyframes scan {
   0%, 100% { top: 0; }
   50% { top: calc(100% - 4px); }
 }
 .animate-scan { animation: scan 3s ease-in-out infinite; }
+
+/* ===== BRIGHT THEME ===== */
+.bright-theme {
+  background-color: #f0f4ff;
+  color: #0a0a1a;
+}
+.bright-theme #main-content {
+  background-color: #f0f4ff;
+}
+.bright-theme .glass-panel {
+  background: rgba(255,255,255,0.85) !important;
+  border-color: rgba(0,180,200,0.4) !important;
+}
+.bright-theme .neon-border {
+  box-shadow: 0 0 10px rgba(0,180,200,0.3), inset 0 0 10px rgba(0,180,200,0.1);
+  border-color: rgba(0,180,200,0.5) !important;
+}
+.bright-theme .noise-overlay { opacity: 0.01; }
+.bright-theme .glitch::before,
+.bright-theme .glitch::after { background: #f0f4ff; }
+
+/* Nav */
+.bright-theme .nav-text { color: #0a0a1a; }
+.bright-theme .nav-link { color: #1a1a3a !important; }
+.bright-theme .nav-icon { color: #1a1a3a !important; }
+
+/* About section */
+.bright-theme .section-heading { color: #0a0a1a; }
+.bright-theme .section-text { color: #2a2a4a; }
+.bright-theme .section-subtext { color: #4a4a6a; }
+.bright-theme .highlight-text { color: #0a0a1a; }
+.bright-theme .info-card { background: rgba(255,255,255,0.9) !important; }
+.bright-theme .info-card-value { color: #1a1a3a; }
+
+/* Hero */
+.bright-theme .hero-hud { color: rgba(0,150,180,0.8) !important; }
+.bright-theme .hero-hud-r { color: rgba(180,0,180,0.8) !important; }
+
+/* Skills - planet labels & core */
+.bright-theme .planet-node { background: #ffffff !important; }
+.bright-theme .planet { background: #ffffff !important; color: #0a0a1a !important; }
+.bright-theme .planet span,
+.bright-theme .planet-label { color: #0a0a1a !important; font-weight: 800 !important; font-size: 11px !important; white-space: nowrap !important; }
+.bright-theme .skills-core { background: linear-gradient(135deg,#e0f7ff,#d0e8ff) !important; color: #0a0a1a !important; border-color: #00b4c8 !important; }
+.bright-theme .skills-heading { color: #0a0a1a; }
+.bright-theme .skills-hint { color: #4a4a6a !important; }
+
+/* Projects */
+.bright-theme .project-title { color: #0a0a1a !important; }
+.bright-theme .project-desc { color: #3a3a5a !important; }
+.bright-theme .project-tech { background: rgba(0,0,0,0.06) !important; border-color: rgba(0,0,0,0.1) !important; color: #1a1a3a !important; }
+.bright-theme .project-section-bg { background: rgba(220,235,255,0.5) !important; }
+.bright-theme .project-card-inner { background: rgba(255,255,255,0.9) !important; border-color: rgba(0,180,200,0.2) !important; }
+
+/* Experience */
+.bright-theme .exp-heading { color: #0a0a1a; }
+.bright-theme .exp-title { color: #0a0a1a !important; }
+.bright-theme .exp-desc { color: #3a3a5a !important; }
+.bright-theme .exp-card { background: rgba(255,255,255,0.9) !important; border-color: rgba(0,180,200,0.2) !important; }
+.bright-theme .exp-dot { background: #f0f4ff !important; }
+
+/* Contact */
+.bright-theme .contact-heading { color: #0a0a1a !important; }
+.bright-theme .contact-inner { background: rgba(255,255,255,0.95) !important; }
+.bright-theme .contact-label { color: #4a4a6a !important; }
+.bright-theme .contact-input { color: #0a0a1a !important; border-color: #aab !important; }
+.bright-theme .contact-input::placeholder { color: #8a8aaa !important; }
+.bright-theme .contact-input:focus { border-color: #00b4c8 !important; }
+
+/* Footer */
+.bright-theme .footer-text { color: #4a4a6a; }
+
+/* Section backgrounds */
+.bright-theme #main-content main > section:nth-child(even) {
+  background: rgba(220,235,255,0.35);
+}
+
+/* Scrollbar */
+.bright-theme ::-webkit-scrollbar-track { background: #e0e8ff; }
+.bright-theme ::-webkit-scrollbar-thumb { background: #00b4c8; }
 
 /* Mobile nav menu */
 .mobile-menu {

@@ -30,7 +30,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* HUD Left */}
-      <div className="absolute top-32 left-4 lg:left-10 hidden lg:block text-xs font-mono text-cyber-cyan/60">
+      <div className="hero-hud absolute top-32 left-4 lg:left-10 hidden lg:block text-xs font-mono text-cyber-cyan/60">
         <p>SYS.STATUS: ONLINE</p>
         <p>LOC: HYDERABAD, IN</p>
         <p>LAT: 17.3850 N</p>
@@ -41,7 +41,7 @@ export default function Hero() {
       </div>
 
       {/* HUD Right */}
-      <div className="absolute top-32 right-4 lg:right-10 hidden lg:block text-right text-xs font-mono text-cyber-magenta/60">
+      <div className="hero-hud-r absolute top-32 right-4 lg:right-10 hidden lg:block text-right text-xs font-mono text-cyber-magenta/60">
         <p>CPU: 12%</p>
         <p>MEM: 4.2GB</p>
         <p>NET: 1GBPS</p>

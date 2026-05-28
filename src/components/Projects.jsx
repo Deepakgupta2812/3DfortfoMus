@@ -35,8 +35,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-32 px-4 md:px-6 bg-black/40">
-      <h2 className="font-orbitron text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-right max-w-7xl mx-auto flex flex-row-reverse items-center gap-4 flex-wrap">
+    <section id="projects" className="project-section-bg py-20 md:py-32 px-4 md:px-6 bg-black/40">
+      <h2 className="font-orbitron text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-right max-w-7xl mx-auto flex flex-row-reverse items-center gap-4 flex-wrap project-title">
         <span className="text-cyber-magenta">03.</span> PROJECT LAB
         <div className="h-[1px] flex-grow bg-gradient-to-l from-cyber-magenta/50 to-transparent min-w-[40px]" />
       </h2>
@@ -56,14 +56,13 @@ export default function Projects() {
               </div>
 
               <div className="p-5 md:p-6 relative z-10">
-                <h3 className={`text-xl md:text-2xl font-orbitron font-bold mb-2 ${p.titleHover} transition`}>{p.title}</h3>
-                <p className="text-gray-400 text-xs md:text-sm mb-4">{p.desc}</p>
+                <h3 className={`project-title text-xl md:text-2xl font-orbitron font-bold mb-2 ${p.titleHover} transition`}>{p.title}</h3>
+                <p className="project-desc text-gray-400 text-xs md:text-sm mb-4">{p.desc}</p>
                 <div className="flex gap-2 flex-wrap">
                   {p.techs.map(t => (
-                    <span key={t} className="text-xs px-2 py-1 bg-white/5 rounded border border-white/10">{t}</span>
+                    <span key={t} className="project-tech text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">{t}</span>
                   ))}
                 </div>
-                {/* Always show arrow, animate on hover */}
                 <div className={`absolute bottom-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity ${p.arrowColor}`}>
                   <span className="text-xs font-mono">VIEW DOCS</span>
                   <ArrowUpRight className="w-4 h-4" />
