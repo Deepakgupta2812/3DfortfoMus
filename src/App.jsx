@@ -71,7 +71,7 @@ function AppContent() {
           <Contact showNotification={showNotification} />
         </main>
         <footer className="py-8 text-center text-xs font-mono border-t border-white/5 footer-text">
-          <p>SYSTEM DESIGN © 2024 DEEPAK GUPTA // ALL RIGHTS RESERVED</p>
+          <p>SYSTEM DESIGN © 2026 DEEPAK GUPTA // ALL RIGHTS RESERVED</p>
           <p className="mt-2">RENDERED IN: <span className="text-cyber-cyan">0.02ms</span></p>
         </footer>
       </div>

@@ -26,7 +26,7 @@ export default function IntroScreen({ onComplete }) {
     <div id="intro-screen" ref={screenRef}>
       <div className="loader-ring mb-8" />
       <div ref={textRef} className="font-mono text-cyber-cyan text-lg glow-text">
-        INITIALIZING SYSTEM...
+        Welcome to Deepak Portfolio...
       </div>
       <div className="mt-4 w-64 h-1 bg-gray-900 rounded overflow-hidden">
         <div ref={barRef} className="h-full bg-cyber-cyan w-0" />

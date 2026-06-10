@@ -1,7 +1,10 @@
 const nodes = [
-  { period: '2023 - PRESENT', title: 'Full Stack Engineer', desc: 'Developing scalable microservices architectures and immersive front-end interfaces. Integration of 3D assets in web environments.' },
-  { period: '2022 - 2023', title: 'Java Developer Intern', desc: 'Optimized SQL queries by 40%. Contributed to internal tooling using Spring Boot and Hibernate.' },
-  { period: '2018 - 2022', title: 'Computer Science Degree', desc: 'Focused on Data Structures, Algorithms, and Distributed Systems. Graduated with Honors.' },
+  { period: '2026 - PRESENT', title: 'Aspiring Full Stack Developer', desc: 'Building real-world web applications using Java, Spring Boot, React, MongoDB, and MySQL. Exploring cloud deployment, REST APIs, and modern development practices.' },
+  { period: '2025 - 2026', title: 'Java Developer Intern', desc: 'Optimized SQL queries by 40%. Contributed to internal tooling using Spring Boot and Hibernate.' },
+  {
+period: '2024 - 2025', title: 'Personal & Academic Projects', desc: 'Developed projects including Resume Analyzer and portfolio websites. Gained hands-on experience with Git, GitHub, database design, authentication, and responsive web development.'
+  },
+  { period: '2023 - 2027', title: 'Bachelor of Technology in Computer Science', desc: 'Studying Data Structures, Algorithms, Database Management Systems, Operating Systems, Computer Networks, and Software Engineering while actively working on practical development projects.' },
 ]
 
 export default function Experience() {

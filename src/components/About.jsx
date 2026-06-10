@@ -30,9 +30,10 @@ export default function About() {
           </h2>
 
           <p className="text-base md:text-lg mb-6 leading-relaxed border-l-2 border-cyber-cyan pl-4 section-text">
-            I am a <span className="font-bold highlight-text">Full Stack Engineer</span> and{' '}
-            <span className="font-bold highlight-text">3D Web Creator</span> specialized in building
-            high-performance digital ecosystems. I don't just write code; I architect immersive experiences.
+            I am Deepak Gupta a passinate <span className="font-bold highlight-text">Software Engineer</span> and{' '}
+            <span className="font-bold highlight-text">JAVA Developer</span> who loves building intelligent systems, scalable web apps, and creative tech solutions. <br />
+            💡 I enjoy solving real-world problems using data, automation, and cutting-edge technologies — from backend systems to AI models and full-stack web platforms. <br />
+              ⚙️ Always eager to learn, collaborate, and innovate in the world of technology!
           </p>
 
           <p className="mb-8 text-sm md:text-base section-subtext">
